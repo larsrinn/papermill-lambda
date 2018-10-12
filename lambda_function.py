@@ -3,10 +3,12 @@ import papermill as pm
 
 import os
 
+import sys
+sys.path.append("/var/task/bin")
+
 
 def lambda_handler(request, context):
     url = "http://example.com"
-    print(url)
     pm.execute_notebook(
         "get_url.ipynb",
         "/tmp/output.ipynb",

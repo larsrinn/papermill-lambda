@@ -5,7 +5,10 @@ ENV IPYTHONDIR='/tmp/ipythondir'
 
 COPY requirements.txt .
 
-RUN pip install -r requirements.txt -t .
+RUN pip install -r requirements.txt -t . && \
+  cp -r /var/lang/bin .
+
+ENV PYTHONPATH="/var/task"
 
 COPY . .
 
