@@ -30,5 +30,9 @@ docker run -e AWS_ACCESS_KEY_ID='xxx' -e AWS_SECRET_ACCESS_KEY='xxx' papermill-l
 ```
 
 #### Running on AWS Lambda
+IPython creates a folder `.ipython` in the home dir of a user.
+This is not possible on AWS Lambda.
+You should rather set the environment variable `IPYTHONDIR` to a folder inside `/tmp/`.
+
 For testing purpose, it is possible to use the default `hello world` test event proposed by AWS Lambda.
 The function currently doesn't take any parameters as input.
