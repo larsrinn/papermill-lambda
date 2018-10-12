@@ -9,12 +9,12 @@ def lambda_handler(request, context):
     print(url)
     pm.execute_notebook(
         "get_url.ipynb",
-        "output.ipynb",
+        "/tmp/output.ipynb",
         parameters=dict(
             url=url,
         )
     )
-    return os.path.exists("output.ipynb")
+    return os.path.exists("/tmp/output.ipynb")
 
 
 if __name__ == '__main__':

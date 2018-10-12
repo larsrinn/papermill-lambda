@@ -1,6 +1,7 @@
 FROM lambci/lambda:build-python3.6
 
-ENV AWS_DEFAULT_REGION eu-central-1
+ENV AWS_DEFAULT_REGION='eu-central-1'
+ENV IPYTHONDIR='/tmp/ipythondir'
 
 COPY requirements.txt .
 
