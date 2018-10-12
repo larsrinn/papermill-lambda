@@ -1,0 +1,4 @@
+requests
+papermill
+ipython
+jupyter

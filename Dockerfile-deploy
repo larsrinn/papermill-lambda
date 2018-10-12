@@ -1,0 +1,13 @@
+FROM lambci/lambda:build-python3.6
+
+ENV AWS_DEFAULT_REGION eu-central-1
+
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt -t .
+
+COPY . .
+
+CMD cat .lambdaignore | xargs zip -9qyr lambda.zip . -x && \
+   aws s3 cp lambda.zip s3://papermill-lambda/lambda.zip && \
+   aws lambda update-function-code --function-name papermill-lambda --s3-bucket papermill-lambda --s3-key lambda.zip
